@@ -83,7 +83,7 @@ class Player:
     def draw_moss(self, screen):
         # Moss - curly hair, glasses, sweater vest
         # Head
-        pygame.draw.circle(screen, (255, 220, 177), (self.x + 20, self.y + 15), 12)
+        pygame.draw.circle(screen, (255, 255, 250), (self.x + 20, self.y + 15), 12)
         
         # Curly hair
         hair_color = BROWN
@@ -115,8 +115,8 @@ class Player:
         pygame.draw.rect(screen, WHITE, (self.x + 12, self.y + 25, 16, 5))
         
         # Arms
-        pygame.draw.rect(screen, (255, 240, 220), (self.x + 5, self.y + 30, 8, 15))
-        pygame.draw.rect(screen, (255, 240, 220), (self.x + 27, self.y + 30, 8, 15))
+        pygame.draw.rect(screen, (255, 255, 250), (self.x + 5, self.y + 30, 8, 15))
+        pygame.draw.rect(screen, (255, 255, 250), (self.x + 27, self.y + 30, 8, 15))
         
         # Legs
         pygame.draw.rect(screen, BLUE, (self.x + 12, self.y + 50, 6, 10))
@@ -125,7 +125,7 @@ class Player:
     def draw_jen(self, screen):
         # Jen - flowing hair, professional attire
         # Head
-        pygame.draw.circle(screen, (255, 240, 220), (self.x + 20, self.y + 15), 12)
+        pygame.draw.circle(screen, (255, 255, 250), (self.x + 20, self.y + 15), 12)
         
         # Flowing hair (reddish-blonde) - more dynamic and flowing
         hair_color = (200, 100, 50)
@@ -154,39 +154,40 @@ class Player:
                                           (self.x + 20, self.y + 30)])
         
         # Arms
-        pygame.draw.rect(screen, (255, 220, 177), (self.x + 5, self.y + 30, 8, 15))
-        pygame.draw.rect(screen, (255, 220, 177), (self.x + 27, self.y + 30, 8, 15))
+        pygame.draw.rect(screen, (255, 255, 250), (self.x + 5, self.y + 30, 8, 15))
+        pygame.draw.rect(screen, (255, 255, 250), (self.x + 27, self.y + 30, 8, 15))
         
         # Skirt
         pygame.draw.rect(screen, BLACK, (self.x + 12, self.y + 50, 16, 10))
     
     def draw_roy(self, screen):
-        # Roy - afro, t-shirt, casual
+        # Roy - ginger hair, t-shirt, casual
         # Head
-        pygame.draw.circle(screen, (139, 69, 19), (self.x + 20, self.y + 15), 12)
+        pygame.draw.circle(screen, (255, 255, 250), (self.x + 20, self.y + 15), 12)
         
-        # Afro
-        afro_color = BLACK
-        for i in range(12):
-            angle = i * 30
-            offset_x = int(15 * pygame.math.Vector2(1, 0).rotate(angle).x)
-            offset_y = int(15 * pygame.math.Vector2(1, 0).rotate(angle).y)
-            pygame.draw.circle(screen, afro_color, 
-                             (self.x + 20 + offset_x//2, self.y + 15 + offset_y//2), 8)
+        # Ginger hair (reddish-orange)
+        ginger_color = (200, 100, 40)
+        # Main hair volume
+        pygame.draw.ellipse(screen, ginger_color, (self.x + 8, self.y + 3, 24, 18))
+        # Hair texture/layers
+        for i in range(6):
+            hair_x = self.x + 10 + i * 4
+            hair_y = self.y + 5 + random.randint(-1, 1)
+            pygame.draw.ellipse(screen, (220, 120, 60), (hair_x, hair_y, 4, 12))
         
         # Eyes
         pygame.draw.circle(screen, BLACK, (self.x + 16, self.y + 15), 2)
         pygame.draw.circle(screen, BLACK, (self.x + 24, self.y + 15), 2)
         
-        # Beard
-        pygame.draw.ellipse(screen, BLACK, (self.x + 14, self.y + 20, 12, 8))
+        # Ginger beard (same color as hair)
+        pygame.draw.ellipse(screen, ginger_color, (self.x + 14, self.y + 20, 12, 8))
         
         # Body - casual t-shirt
         pygame.draw.rect(screen, RED, (self.x + 10, self.y + 25, 20, 25))
         
         # Arms
-        pygame.draw.rect(screen, (139, 69, 19), (self.x + 5, self.y + 30, 8, 15))
-        pygame.draw.rect(screen, (139, 69, 19), (self.x + 27, self.y + 30, 8, 15))
+        pygame.draw.rect(screen, (255, 255, 250), (self.x + 5, self.y + 30, 8, 15))
+        pygame.draw.rect(screen, (255, 255, 250), (self.x + 27, self.y + 30, 8, 15))
         
         # Legs - jeans
         pygame.draw.rect(screen, BLUE, (self.x + 12, self.y + 50, 6, 10))
